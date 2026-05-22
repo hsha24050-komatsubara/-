@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小松堂おみくじガチャ V2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="shop-container">
+        <div class="shop-background">
+            <img src="https://replicate.delivery/xpbkg/zN9M0fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6n9fE6/output.png" alt="小松堂 駄菓子屋背景" class="real-bg-image">
+            <div class="collection-shelf">
+                <img src="path/to/retro_camera.png" alt="レトロカメラ" class="collected-item" title="集めたアイテム: レトロカメラ">
+                <img src="path/to/showa_ticket.png" alt="昭和の切符" class="collected-item" title="集めたアイテム: 昭和の切符">
+            </div>
+        </div>
+
+        <header class="shop-header">
+            <h1 class="shop-title">駄菓子 小松堂</h1>
+            <p class="shop-subtitle">〜 朝のリアル運試しガチャ 〜</p>
+        </header>
+
+        <main class="shop-main">
+            <div class="real-toy-machine" id="machine">
+                <div class="glass-globe-real">
+                    <img src="path/to/red_capsule.png" alt="カプセル" class="real-capsule c1">
+                    <img src="path/to/blue_capsule.png" alt="カプセル" class="real-capsule c2">
+                    <img src="path/to/gold_capsule.png" alt="カプセル" class="real-capsule c3">
+                    <img src="path/to/green_capsule.png" alt="カプセル" class="real-capsule c4">
+                </div>
+                <div class="machine-body-real">
+                    <div class="mechanism-real">
+                        <button class="real-enter-button" id="enterBtn">
+                            <img src="path/to/real_enter_button.png" alt="ENTER" class="enter-btn-img">
+                        </button>
+                    </div>
+                    <div class="discharge-port-real">
+                        <div class="dispensed-capsule-real" id="dispensedCapsule"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-overlay-real" id="resultOverlay">
+                <div class="result-card-real" id="resultCard">
+                    <div class="result-header-real">
+                        <span class="shop-label-real">小松堂謹製・本日の予言</span>
+                        <h2 class="fortune-rank-real" id="fortuneRank">大吉</h2>
+                    </div>
+                    <div class="result-body-real">
+                        <p class="fortune-message-real" id="fortuneMessage">
+                            今日のあなたは恐るべきポテンシャルを秘めている。眠れる力を解き放つ好機なり！迷わず突き進め！
+                        </p>
+                        
+                        <div class="lucky-section-real">
+                            <div class="lucky-item-box-real color-box">
+                                <span class="lucky-title-real">ラッキーカラー</span>
+                                <div class="color-swatch" id="luckyColorSwatch"></div>
+                                <p class="lucky-value-real" id="luckyColorName">レトロレモン</p>
+                            </div>
+                            <div class="lucky-item-box-real item-box">
+                                <span class="lucky-title-real">ラッキーアイテム</span>
+                                <img src="path/to/retro_wallpaper_icon.png" alt="壁紙アイコン" class="lucky-item-icon">
+                                <a href="#" class="lucky-value-real download-link" id="luckyWallpaperLink">青空の壁紙をDL</a>
+                            </div>
+                        </div>
+
+                        <div class="secret-mission-box-real" id="secretMissionBox">
+                            <h3 class="mission-title-real">⚠️ 逆転裏ミッション発動 ⚠️</h3>
+                            <p class="mission-text-real" id="secretMissionText">
+                                校長先生（または職場の1番偉い人）に元気よく挨拶しに行くと、大凶の呪いが解けて最高の一日になるぞ！
+                            </p>
+                        </div>
+                    </div>
+                    <div class="result-footer-real">
+                        <button class="close-button-real" id="closeBtn">店を出る</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
