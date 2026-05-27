@@ -2,40 +2,38 @@
    小松堂おみくじガチャ V2 - リアルレトロスタイル
    ========================================== */
 
-* {
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #3d342e; /* リアルな駄菓子屋の薄暗い木の色 */
-    font-family: 'Kosugi Maru', sans-serif; /* レトロで丸みのあるフォント */
+    background-color: #1a1512;
+    font-family: 'Kosugi Maru', sans-serif;
     color: #e2d7cc;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 10px;
-    overflow: hidden;
 }
 
-/* 駄菓子屋コンテナ */
 .shop-container {
     width: 100%;
-    max-width: 480px;
-    height: 90vh; /* 画面に収まる高さ */
-    background-color: #2b2521;
-    border: 12px solid #5a4b42; /* リアルな木製の枠 */
-    border-radius: 8px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    max-width: 440px;
+    height: 85vh;
+    min-height: 600px;
+    background-color: #0a0807;
+    border: 12px solid #3e332c;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-/* 駄菓子屋の背景画像 */
 .shop-background {
     position: absolute;
     top: 0;
@@ -49,54 +47,32 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6; /* ガチャを目立たせるために少し暗く */
+    opacity: 0.5;
 }
 
-/* コレクション棚 */
-.collection-shelf {
-    position: absolute;
-    top: 15%;
-    left: 5%;
-    width: 90%;
-    height: 15%;
-    display: flex;
-    gap: 10px;
-    z-index: 2;
-    overflow-x: auto;
-    padding: 5px;
-}
-
-.collected-item {
-    height: 80%;
-    object-fit: contain;
-    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-}
-
-/* 看板ヘッダー（リアルな木製看板） */
 .shop-header {
-    background-color: transparent;
+    background-color: rgba(130, 40, 25, 0.9);
     color: #f7ede2;
     text-align: center;
-    padding: 15px;
+    padding: 15px 10px;
     z-index: 3;
-    background-image: url('path/to/wood_grain.png'); /* 木目のテクスチャ */
-    border-bottom: 3px solid #3d342e;
+    border-bottom: 5px solid #2b2521;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .shop-title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
-    letter-spacing: 2px;
-    color: #e2d7cc;
-    text-shadow: 2px 2px 0px #2b2521;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px #000;
 }
 
 .shop-subtitle {
-    font-size: 12px;
-    color: #b5a492;
+    font-size: 11px;
+    margin-top: 4px;
+    opacity: 0.8;
 }
 
-/* メイン領域 */
 .shop-main {
     flex: 1;
     display: flex;
@@ -104,136 +80,311 @@ body {
     align-items: center;
     z-index: 2;
     position: relative;
-    padding-bottom: 20px;
 }
 
-/* リアルなガチャガチャ筐体 */
+/* リアルガチャガチャ筐体 */
 .real-toy-machine {
-    width: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-/* リアルなガラスドーム */
-.glass-globe-real {
     width: 240px;
-    height: 220px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 8px solid #5a4b42;
-    border-radius: 120px 120px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 0 30px rgba(255,255,255,0.2), 0 10px 20px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9));
+    transition: filter 0.5s ease;
 }
 
-/* リアルなカプセル（装飾用） */
-.real-capsule {
-    width: 40px;
-    height: 40px;
+/* カプセルオープン時は筐体を少し暗くしてぼかす */
+.real-toy-machine.blur-mode {
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)) blur(3px) brightness(0.4);
+}
+
+/* ガラスドーム */
+.glass-globe-real {
+    width: 210px;
+    height: 190px;
+    background: 
+        linear-gradient(140deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 40%),
+        linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%),
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.8) 100%);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 8px solid #1a1512;
+    border-radius: 105px 105px 40px 40px;
+    position: relative;
+    overflow: hidden; 
+    box-shadow: 
+        inset 0 10px 20px rgba(255,255,255,0.2),
+        inset -8px -8px 15px rgba(0,0,0,0.7),
+        0 12px 25px rgba(0,0,0,0.5);
+    z-index: 4;
+}
+
+/* ドーム内の立体カプセル */
+.capsule {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
     position: absolute;
-    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 
+        inset 4px 4px 6px rgba(255,255,255,0.7), 
+        inset -5px -5px 7px rgba(0,0,0,0.6), 
+        3px 6px 10px rgba(0,0,0,0.7);
+    z-index: 5;
 }
-.c1 { top: 160px; left: 40px; transform: rotate(15deg); }
-.c2 { top: 170px; left: 100px; transform: rotate(-10deg); }
-.c3 { top: 150px; left: 160px; transform: rotate(25deg); }
-.c4 { top: 130px; left: 80px; transform: rotate(-20deg); }
+.c1 { background: linear-gradient(to bottom, #661616 0%, #440e0e 50%, rgba(220,220,220,0.4) 51%, rgba(255,255,255,0.15) 100%); top: 145px; left: 20px; transform: rotate(15deg); }
+.c2 { background: linear-gradient(to bottom, #003049 0%, #003049 50%, rgba(220,220,220,0.4) 51%, rgba(255,255,255,0.15) 100%); top: 148px; left: 65px; transform: rotate(-10deg); }
+.c3 { background: linear-gradient(to bottom, #b17d15 0%, #8d630e 50%, rgba(220,220,220,0.4) 51%, rgba(255,255,255,0.15) 100%); top: 140px; left: 110px; transform: rotate(25deg); }
+.c4 { background: linear-gradient(to bottom, #417a07 0%, #274608 50%, rgba(220,220,220,0.4) 51%, rgba(255,255,255,0.15) 100%); top: 144px; left: 152px; transform: rotate(-20deg); }
+.c5 { background: linear-gradient(to bottom, #3b055f 0%, #2e044b 50%, rgba(220,220,220,0.4) 51%, rgba(255,255,255,0.15) 100%); top: 110px; left: 75px; transform: rotate(5deg); }
 
-/* 筐体本体（リアルなプラスチックと金属） */
+/* 筐体本体 */
 .machine-body-real {
-    width: 260px;
+    width: 230px;
     height: 200px;
-    background-color: #c84b31; /* 朱赤 */
-    background-image: url('path/to/plastic_texture.png');
-    border: 8px solid #5a4b42;
+    background: 
+        linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 10%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0) 90%, rgba(0,0,0,0.6) 100%),
+        linear-gradient(to bottom, #8b1e1e 0%, #3f0a0a 100%);
+    border: 8px solid #1a1512;
     border-top: none;
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 30px 30px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 25px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+    padding-top: 15px;
+    box-shadow: 
+        inset 0 20px 25px rgba(0,0,0,0.85),
+        0 15px 30px rgba(0,0,0,0.7);
 }
 
-/* リアルなメカニズム・Enterキー */
+/* メタルプレート */
 .mechanism-real {
-    width: 130px;
-    height: 80px;
-    background-color: #2b2521;
-    border-radius: 12px;
+    width: 160px;
+    height: 90px;
+    background: 
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
+        linear-gradient(135deg, #6c757d 0%, #343a40 50%, #1a1d20 100%);
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 5px 0px #1a1512;
-    border: 2px solid #5a4b42;
+    border: 4px solid #111;
+    position: relative;
+    box-shadow: 
+        inset 4px 4px 12px rgba(0,0,0,0.95),
+        0 3px 6px rgba(0,0,0,0.5),
+        0 -1px 0px rgba(255,255,255,0.15);
 }
 
+.mechanism-real::before {
+    content: '●     ●\n\n●     ●';
+    white-space: pre;
+    position: absolute;
+    font-size: 6px;
+    color: #111;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    opacity: 0.7;
+    line-height: 1;
+    top: 6px;
+    letter-spacing: 120px;
+    padding-left: 6px;
+}
+
+.machine-label-real {
+    position: absolute;
+    top: -12px;
+    background: #e9ecef;
+    border: 2px solid #222;
+    color: #2b2521;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+}
+
+/* 回転レバーハンドル */
 .real-enter-button {
-    width: 100px;
-    height: 60px;
-    background-color: transparent;
-    border: none;
+    width: 110px;
+    height: 42px;
+    background: linear-gradient(180deg, #ffffff 0%, #ccc 25%, #777 50%, #444 75%, #222 100%);
+    border: 3px solid #111;
+    border-radius: 6px;
+    color: #111;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 1px;
     cursor: pointer;
+    position: relative;
+    box-shadow: 
+        0 8px 0px #1a1a1a, 
+        0 12px 20px rgba(0,0,0,0.8),
+        inset 0 3px 5px rgba(255,255,255,0.8);
+    transition: all 0.05s ease;
     outline: none;
-    transition: transform 0.1s ease;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
 }
 
-.enter-btn-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.real-enter-button::before, .real-enter-button::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 16px;
+    height: 42px;
+    background: inherit;
+    border: 3px solid #111;
+    border-radius: 4px;
+    box-shadow: 0 8px 0px #1a1a1a;
 }
+.real-enter-button::before { left: -14px; }
+.real-enter-button::after { right: -14px; }
 
-/* ボタンが押されたとき */
 .real-enter-button:active, .real-enter-button.triggered {
-    transform: translateY(5px);
+    transform: translateY(6px);
+    box-shadow: 
+        0 2px 0px #1a1a1a, 
+        0 4px 8px rgba(0,0,0,0.5),
+        inset 0 4px 8px rgba(0,0,0,0.6);
 }
 
-/* リアルな取出し口 */
+/* 取り出し口 */
 .discharge-port-real {
-    width: 90px;
+    width: 100px;
     height: 70px;
-    background-color: #1a1512;
-    border: 6px solid #5a4b42;
+    background: #000;
+    border: 6px solid #1a1512;
     border-radius: 12px 12px 0 0;
     position: absolute;
-    bottom: -5px;
+    bottom: -2px;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    box-shadow: inset 0 0 15px rgba(0,0,0,1);
+    align-items: center;
+    box-shadow: 
+        inset 0 10px 25px rgba(0,0,0,1),
+        0 -3px 8px rgba(0,0,0,0.5);
 }
 
-/* リアルに排出されるカプセル */
+.discharge-port-real::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to bottom, rgba(40,35,30,0.9) 0%, rgba(20,15,10,0.9) 100%);
+    border-bottom: 2px solid #444;
+    box-shadow: inset 0 2px 5px rgba(255,255,255,0.1);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.real-toy-machine.active .discharge-port-real::before {
+    transform: rotateX(-60deg);
+}
+
+/* 最初に出てくる小さなカプセル */
 .dispensed-capsule-real {
-    width: 55px;
-    height: 55px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    position: relative;
-    bottom: -60px;
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     z-index: 10;
-    filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.7));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 
+        inset 4px 4px 6px rgba(255,255,255,0.7), 
+        inset -5px -5px 8px rgba(0,0,0,0.6), 
+        2px 4px 10px rgba(0,0,0,0.8);
 }
 
-/* ガチャ回転中の揺れアニメーション */
+/* ==========================================
+   ★新設★ 前に出てきてパカッと割れる大仕掛け
+   ========================================== */
+.open-capsule-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* 画面の前にズームアップしてくるコンテナ */
+.split-capsule {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* ズームアップ状態 */
+.split-capsule.zoomed {
+    transform: scale(1) rotate(720deg); /* ぐるぐる回転しながら前に飛び出す */
+    opacity: 1;
+}
+
+/* 上半分のフタ（不透明なプラスチック） */
+.capsule-top {
+    width: 100%;
+    height: 50%;
+    border-radius: 80px 80px 0 0;
+    border: 2px solid rgba(0,0,0,0.6);
+    border-bottom: 1px solid #111;
+    position: absolute;
+    top: 0;
+    box-shadow: inset 6px 6px 12px rgba(255,255,255,0.6);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 下半分のケース（クリア半透明パーツ） */
+.capsule-bottom {
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 80px 80px;
+    border: 2px solid rgba(0,0,0,0.6);
+    border-top: 1px solid #111;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 
+        inset -6px -6px 15px rgba(0,0,0,0.6),
+        inset 4px 2px 8px rgba(255,255,255,0.3);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 【重要】クリックされて「パカッ」と割れた状態の動き */
+.split-capsule.cracked .capsule-top {
+    transform: translateY(-70px) rotate(-20deg); /* 上のフタが上に吹き飛ぶ */
+}
+.split-capsule.cracked .capsule-bottom {
+    transform: translateY(70px) rotate(20deg);  /* 下のケースが下に落ちる */
+}
+
+/* 揺れモーション */
 @keyframes shakeReal {
     0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(-4px, 3px) rotate(-1.5deg); }
-    50% { transform: translate(3px, -2px) rotate(1.5deg); }
-    75% { transform: translate(-3px, -3px) rotate(-0.5deg); }
+    20% { transform: translate(-3px, 2px) rotate(-0.5deg); }
+    40% { transform: translate(2px, -2px) rotate(1deg); }
+    60% { transform: translate(-2px, 1px) rotate(-0.5deg); }
+    80% { transform: translate(2px, 2px) rotate(0.5deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
+.shake-real { animation: shakeReal 0.4s ease-in-out infinite; }
 
-.shake-real {
-    animation: shakeReal 0.6s ease-in-out infinite;
-}
-
-/* 結果表示オーバーレイ（リアルな和紙質感） */
+/* 結果表示モーダル（カプセルが割れた後、さらに奥から出てくる） */
 .result-overlay-real {
     position: absolute;
     top: 0;
@@ -256,19 +407,17 @@ body {
     pointer-events: auto;
 }
 
-/* おみくじ結果カード（和紙と古びた質感） */
 .result-card-real {
     width: 100%;
-    background-color: #f7ede2;
-    background-image: url('path/to/washi_texture.png'); /* 和紙のテクスチャ */
-    border: 8px solid #c84b31;
-    border-radius: 4px;
-    padding: 30px 20px;
+    background-color: #fdfaf5;
+    border: 5px double #3e332c;
+    border-radius: 6px;
+    padding: 20px;
     text-align: center;
-    transform: scale(0.7);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    position: relative;
+    transform: scale(0.3); /* パカッと割れた隙間から飛び出してくるように極小からスタート */
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    color: #3d342e;
 }
 
 .result-overlay-real.active .result-card-real {
@@ -276,133 +425,107 @@ body {
 }
 
 .shop-label-real {
-    font-size: 12px;
-    background-color: #c84b31;
-    color: #f7ede2;
-    padding: 3px 10px;
-    border-radius: 15px;
-    letter-spacing: 1px;
+    font-size: 11px;
+    background-color: #990000;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
 .fortune-rank-real {
-    font-size: 42px;
-    margin: 15px 0;
-    color: #2b2521;
-    letter-spacing: 5px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    font-size: 38px;
+    margin: 10px 0;
+    color: #990000;
+    letter-spacing: 4px;
 }
 
 .fortune-message-real {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 25px 0;
-    padding: 20px;
-    background-color: rgba(255,255,255,0.5);
-    border: 1px solid #b5a492;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 15px 0;
+    padding: 12px;
+    background-color: #f5ece2;
+    border-left: 4px solid #990000;
     text-align: left;
-    color: #3d342e;
 }
 
-/* リアルなラッキーエリア */
 .lucky-section-real {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .lucky-item-box-real {
     flex: 1;
-    background-color: #e2d7cc;
-    border: 2px solid #5a4b42;
-    padding: 15px;
-    border-radius: 6px;
+    background-color: #eee4d8;
+    border: 1px solid #b5a492;
+    padding: 10px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    justify-content: center;
 }
 
 .lucky-title-real {
-    font-size: 11px;
-    display: block;
-    color: #5a4b42;
-    margin-bottom: 8px;
+    font-size: 10px;
+    color: #7a685c;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* カラー見本 */
 .color-swatch {
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    border: 3px solid #f7ede2;
-    margin-bottom: 8px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-/* 壁紙アイコン */
-.lucky-item-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-bottom: 8px;
+    border: 2px solid #fff;
+    margin-bottom: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .lucky-value-real {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
-    color: #2b2521;
+    text-align: center;
 }
 
-.download-link {
-    color: #c84b31;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* リアルな裏ミッション枠（大凶用、錆びた金属質感） */
 .secret-mission-box-real {
-    background-color: #2b2521;
-    background-image: url('path/to/rusty_metal_texture.png');
-    border: 4px solid #c84b31;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 25px;
+    background-color: #ffebee;
+    border: 2px dashed #c62828;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
     display: none;
-    box-shadow: inset 0 0 15px rgba(200, 75, 49, 0.4);
 }
 
 .mission-title-real {
-    color: #f7ede2;
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-}
-
-.mission-text-real {
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: left;
-    color: #e2d7cc;
-}
-
-/* 閉じるボタン（リアルな金属ボタン） */
-.close-button-real {
-    background-color: #c84b31;
-    color: #f7ede2;
-    border: 2px solid #5a4b42;
-    padding: 12px 30px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 0px #8e3523, 0 6px 10px rgba(0,0,0,0.5);
-    transition: all 0.1s ease;
+    color: #c62828;
+    font-size: 13px;
+    margin-bottom: 4px;
     font-weight: bold;
 }
 
+.mission-text-real {
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.close-button-real {
+    background-color: #3e332c;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 0px #1a1512;
+    transition: all 0.1s;
+}
+
 .close-button-real:active {
-    transform: translateY(4px);
-    box-shadow: 0 0px 0px #8e3523, 0 2px 5px rgba(0,0,0,0.3);
+    transform: translateY(2px);
+    box-shadow: 0 1px 0px #1a1512;
 }
